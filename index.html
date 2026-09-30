@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beauty Parlour | Nail Artistry in Nairobi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{alabaster:'#FDFBF7',obsidian:'#121212',charcoal:'#2A2A2A',champagne:{DEFAULT:'#C5A880',light:'#E6D7C3'},sand:'#F0EBE1'},fontFamily:{serif:['"Cormorant Garamond"','serif'],sans:['Montserrat','sans-serif']}}}}
+</script>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:#FDFBF7;color:#121212}
+::selection{background:#C5A880;color:#fff}
+:focus-visible{outline:2px solid #C5A880;outline-offset:3px}
+@media(pointer:fine){body.cur,body.cur *{cursor:none!important}}
+.cd,.co{position:fixed;top:0;left:0;transform:translate(-50%,-50%);border-radius:50%;z-index:9999;pointer-events:none;display:none}
+.cur .cd,.cur .co{display:block}
+.cd{width:6px;height:6px;background:#C5A880}
+.co{width:40px;height:40px;border:1px solid rgba(197,168,128,.55);transition:width .3s,height .3s,background .3s}
+.ch .co{width:60px;height:60px;background:rgba(197,168,128,.12)}
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1.2s cubic-bezier(.19,1,.22,1),transform 1.2s cubic-bezier(.19,1,.22,1)}
+.rv.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.ph{position:relative;overflow:hidden;background:var(--g)}
+.ph .cover{position:absolute;inset:0;background:#FDFBF7;transition:transform 1.5s cubic-bezier(.19,1,.22,1);transform-origin:top;z-index:2}
+.ph.on .cover{transform:scaleY(0)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.19,1,.22,1)}
+.ph:hover img{transform:scale(1.05)}
+.srow{position:relative;transition:padding-left .4s ease,color .4s}
+.srow::before{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:#C5A880;transition:width .6s cubic-bezier(.19,1,.22,1)}
+.srow:hover::before{width:100%}.srow:hover{padding-left:1rem;color:#C5A880}
+.fc{position:relative;margin-bottom:2rem}
+.fi{width:100%;background:transparent;border:0;border-bottom:1px solid #cfcfcf;padding:10px 0;font-size:1rem;color:#121212;border-radius:0;appearance:none}
+.fi:focus{outline:none;border-color:#C5A880}
+.fl{position:absolute;top:10px;left:0;color:#6B7280;pointer-events:none;transition:all .3s}
+.fi:focus~.fl,.fi.hv~.fl{top:-14px;font-size:.75rem;color:#A38760}
+@keyframes zoom{from{transform:scale(1.05)}to{transform:scale(1.15)}}
+@keyframes sd{0%{transform:translateY(-100%)}50%{transform:none}100%{transform:translateY(100%)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body class="antialiased overflow-x-hidden font-sans">
+<div class="cd"></div><div class="co"></div>
+
+<nav id="nav" class="fixed w-full z-50 mix-blend-difference text-white px-6 py-5 transition-all duration-500" style="top:env(safe-area-inset-top,0px)">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<a href="#" class="font-serif text-2xl md:text-3xl tracking-[.25em] uppercase">Beauty Parlour</a>
+<div class="hidden md:flex gap-12 text-sm tracking-widest font-light">
+<a href="#about" class="hover:text-champagne transition">Philosophy</a><a href="#services" class="hover:text-champagne transition">Menu</a><a href="#gallery" class="hover:text-champagne transition">Portfolio</a>
+</div>
+<a href="#booking" class="hidden md:inline-block border border-white/40 px-6 py-2 rounded-full text-xs tracking-widest hover:bg-white hover:text-black transition">Reserve</a>
+<button id="mb" class="md:hidden relative z-50" aria-label="Menu" aria-expanded="false"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+</nav>
+<div id="menu" class="hidden fixed inset-0 z-40 bg-obsidian text-alabaster flex-col items-center justify-center gap-8 font-serif text-4xl">
+<a href="#about">Philosophy</a><a href="#services">Menu</a><a href="#gallery">Portfolio</a><a href="#booking" class="text-champagne">Reserve</a>
+</div>
+
+<header class="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-obsidian" style="background:radial-gradient(circle at 70% 30%,#4a3a26 0,#121212 60%)">
+<div class="absolute inset-0 ph" data-photo="hero" style="--g:transparent;opacity:.6"></div>
+<div class="relative z-10 text-center px-4 w-full max-w-5xl text-white mt-16">
+<p class="text-sm md:text-base tracking-[.3em] uppercase mb-6 rv on font-light text-champagne-light">Nail artistry in Nairobi</p>
+<h1 class="font-serif text-6xl md:text-8xl lg:text-9xl leading-none tracking-tight mb-8 rv on d1">Refined<br><span class="italic text-champagne">elegance.</span></h1>
+<div class="mt-12 rv on d2 flex justify-center">
+<a href="#booking" class="mag group inline-flex items-center justify-center w-36 h-36 md:w-40 md:h-40 rounded-full border border-white/25 bg-white/5 backdrop-blur-sm hover:bg-champagne hover:border-champagne transition-colors duration-500"><span class="text-xs tracking-[.2em] uppercase group-hover:text-obsidian transition-colors pointer-events-none">Book now</span></a>
+</div>
+</div>
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white flex flex-col items-center rv on d3">
+<span class="text-[10px] tracking-[.2em] uppercase mb-3">Discover</span>
+<div class="w-px h-12 bg-white/30 overflow-hidden"><div class="w-full h-full bg-white" style="animation:sd 2s ease-in-out infinite"></div></div>
+</div>
+</header>
+
+<section id="about" class="py-28 md:py-44 bg-alabaster">
+<div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-5 md:-mt-24 rv"><div class="ph h-[55vh] min-h-[380px] w-full" data-photo="about" style="--g:linear-gradient(160deg,#E6D7C3,#C5A880)"><div class="cover"></div></div></div>
+<div class="md:col-span-6 md:col-start-7 rv d1">
+<h2 class="font-serif text-5xl md:text-7xl mb-8 leading-tight">More than a manicure.<br><span class="italic text-champagne">An experience.</span></h2>
+<p class="font-light text-charcoal/70 leading-relaxed text-lg max-w-lg">At Beauty Parlour, nail care is a fine art. We bring modern technique and quiet luxury together, from carefully chosen colours to treatments made around you. Every set is finished to last and to be noticed.</p>
+</div>
+</div>
+</section>
+
+<section id="services" class="py-28 bg-obsidian text-alabaster">
+<div class="max-w-5xl mx-auto px-6 md:px-12">
+<div class="text-center mb-20 rv"><span class="text-xs tracking-[.3em] text-champagne uppercase block mb-4">Curated treatments</span><h2 class="font-serif text-5xl md:text-7xl">Service menu</h2></div>
+<div class="border-t border-white/10">
+<div class="srow py-8 border-b border-white/10 flex flex-col md:flex-row justify-between md:items-baseline rv"><div class="md:w-1/2"><h3 class="font-serif text-3xl md:text-4xl mb-2">Bespoke sculpting</h3><p class="font-light text-sm text-white/55">Hard gel extensions, custom shaped with precise cuticle care.</p></div><div class="mt-4 md:mt-0 tracking-widest text-lg text-champagne">Ksh 3,500 / 2 hrs</div></div>
+<div class="srow py-8 border-b border-white/10 flex flex-col md:flex-row justify-between md:items-baseline rv"><div class="md:w-1/2"><h3 class="font-serif text-3xl md:text-4xl mb-2">Signature gel</h3><p class="font-light text-sm text-white/55">Clean prep and builder gel for a flawless, natural-looking finish.</p></div><div class="mt-4 md:mt-0 tracking-widest text-lg text-champagne">Ksh 2,000 / 90 min</div></div>
+<div class="srow py-8 border-b border-white/10 flex flex-col md:flex-row justify-between md:items-baseline rv"><div class="md:w-1/2"><h3 class="font-serif text-3xl md:text-4xl mb-2">Artisan design</h3><p class="font-light text-sm text-white/55">Hand-painted art, chrome and 3D detailing made for you.</p></div><div class="mt-4 md:mt-0 tracking-widest text-lg text-champagne">from Ksh 500 add-on</div></div>
+<div class="srow py-8 border-b border-white/10 flex flex-col md:flex-row justify-between md:items-baseline rv"><div class="md:w-1/2"><h3 class="font-serif text-3xl md:text-4xl mb-2">Luxury pedicure</h3><p class="font-light text-sm text-white/55">Soak, scrub, shape and polish or gel, with deep hydration.</p></div><div class="mt-4 md:mt-0 tracking-widest text-lg text-champagne">Ksh 2,500 / 75 min</div></div>
+</div>
+<div class="mt-14 text-center rv"><a href="#booking" class="inline-block border border-champagne text-champagne px-8 py-4 rounded-full text-xs tracking-widest uppercase hover:bg-champagne hover:text-obsidian transition">Book a service</a></div>
+</div>
+</section>
+
+<section id="gallery" class="py-28 bg-alabaster">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="mb-14 flex justify-between items-end rv"><h2 class="font-serif text-5xl md:text-6xl">Portfolio</h2><a id="ig" href="#" class="hidden text-xs tracking-widest uppercase text-charcoal hover:text-champagne transition">Instagram</a></div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 auto-rows-[300px]">
+<div class="ph md:col-span-7 md:row-span-2 rv" data-photo="g1" style="--g:linear-gradient(150deg,#f3e3c9,#c5a880)"><div class="cover"></div></div>
+<div class="ph md:col-span-5 rv d1" data-photo="g2" style="--g:linear-gradient(150deg,#e9d1d6,#b98a97)"><div class="cover"></div></div>
+<div class="ph md:col-span-5 md:row-span-2 rv" data-photo="g3" style="--g:linear-gradient(150deg,#3a3026,#121212)"><div class="cover"></div></div>
+<div class="ph md:col-span-7 rv d1" data-photo="g4" style="--g:linear-gradient(150deg,#e6d7c3,#a38760)"><div class="cover"></div></div>
+</div>
+</div>
+</section>
+
+<section id="booking" class="py-28 bg-sand">
+<div class="max-w-6xl mx-auto px-6 md:px-12">
+<div class="bg-alabaster shadow-2xl overflow-hidden flex flex-col lg:flex-row rv">
+<div class="lg:w-1/3 bg-obsidian text-alabaster p-10 md:p-12">
+<h3 class="font-serif text-4xl mb-6">Reserve a session</h3>
+<p class="font-light text-sm text-white/70 mb-10 leading-relaxed">We work by appointment only. Choose a service and a day, and we confirm your time on WhatsApp.</p>
+<div class="space-y-4 font-light text-sm">
+<p><span class="text-champagne">Where</span><br>Nairobi. Exact location shared when you book.</p>
+<p><span class="text-champagne">WhatsApp</span><br><span id="wa-show"></span></p>
+<p><span class="text-champagne">Hours</span><br>Tuesday to Saturday, 9am to 6pm</p>
+</div>
+</div>
+<div class="lg:w-2/3 p-10 lg:p-16 bg-white">
+<form id="bf">
+<div class="grid md:grid-cols-2 gap-x-10">
+<div class="fc"><input id="name" class="fi" placeholder=" " required autocomplete="name"><label for="name" class="fl">Full name</label></div>
+<div class="fc"><input id="phone" type="tel" class="fi" placeholder=" " required autocomplete="tel"><label for="phone" class="fl">Phone number</label></div>
+</div>
+<div class="fc"><input id="date" type="date" class="fi hv" required><label for="date" class="fl">Preferred date</label></div>
+<div class="fc"><select id="svc" class="fi" required><option value="" disabled selected></option><option>Bespoke sculpting</option><option>Signature gel</option><option>Artisan design</option><option>Luxury pedicure</option></select><label for="svc" class="fl">Service</label></div>
+<div class="fc"><input id="note" class="fi" placeholder=" "><label for="note" class="fl">Design ideas (optional)</label></div>
+<button type="submit" class="bg-obsidian text-alabaster text-xs tracking-widest uppercase py-4 px-10 hover:bg-champagne hover:text-obsidian transition-colors duration-500 w-full md:w-auto">Send on WhatsApp</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="bg-obsidian text-alabaster pt-20 pb-10 px-6 md:px-12">
+<div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-14">
+<div class="md:col-span-2"><h2 class="font-serif text-3xl tracking-[.25em] uppercase mb-5">Beauty Parlour</h2><p class="text-sm font-light text-white/55 max-w-sm">Nail artistry built on precision, care and an eye for detail.</p></div>
+<div><h4 class="text-xs tracking-[.2em] uppercase text-champagne mb-5">Explore</h4><ul class="text-sm font-light text-white/70 space-y-3"><li><a href="#about" class="hover:text-white">Philosophy</a></li><li><a href="#services" class="hover:text-white">Menu</a></li><li><a href="#gallery" class="hover:text-white">Portfolio</a></li><li><a href="#booking" class="hover:text-white">Reserve</a></li></ul></div>
+</div>
+<div class="max-w-7xl mx-auto border-t border-white/10 pt-8 text-xs font-light text-white/40">&copy; <span id="yr"></span> Beauty Parlour. All rights reserved.</div>
+</footer>
+
+<script>
+/* EDIT THESE: her WhatsApp (country code first, no +), Instagram link, and photo links or data URIs */
+const CONFIG={whatsapp:"254700000000",instagram:"",photos:{hero:"images/hero.jpg",about:"images/about.jpg",g1:"images/gallery1.jpg",g2:"images/gallery2.jpg",g3:"images/gallery3.jpg",g4:"images/gallery4.jpg"}};
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+$('#yr').textContent=new Date().getFullYear();
+$('#wa-show').textContent='+'+CONFIG.whatsapp;
+if(CONFIG.instagram){const a=$('#ig');a.href=CONFIG.instagram;a.classList.remove('hidden');a.classList.add('md:block')}
+$$('[data-photo]').forEach(el=>{const u=CONFIG.photos[el.dataset.photo];if(u){const i=new Image();i.onerror=()=>i.remove();i.src=u;i.alt='';i.loading='lazy';el.appendChild(i)}});
+const io=new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');o.unobserve(e.target)}}),{threshold:.15});
+$$('.rv:not(.on),.ph').forEach(e=>io.observe(e));
+const nav=$('#nav');
+addEventListener('scroll',()=>{const s=scrollY>50;nav.classList.toggle('bg-obsidian/90',s);nav.classList.toggle('backdrop-blur-md',s);nav.classList.toggle('mix-blend-difference',!s)},{passive:true});
+const mb=$('#mb'),menu=$('#menu');
+function tm(o){menu.classList.toggle('hidden',!o);menu.classList.toggle('flex',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
+mb.onclick=()=>tm(menu.classList.contains('hidden'));
+$$('#menu a').forEach(a=>a.onclick=()=>tm(false));
+if(matchMedia('(pointer:fine)').matches){
+document.body.classList.add('cur');
+const cd=$('.cd'),co=$('.co');
+addEventListener('mousemove',e=>{cd.style.left=e.clientX+'px';cd.style.top=e.clientY+'px';co.animate({left:e.clientX+'px',top:e.clientY+'px'},{duration:450,fill:'forwards'})});
+document.addEventListener('mouseover',e=>document.body.classList.toggle('ch',!!e.target.closest('a,button,input,select')));
+$$('.mag').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.3}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')})}
+$$('.fi').forEach(i=>{const u=()=>i.classList.toggle('hv',i.type==='date'||i.value!=='');i.addEventListener('input',u);i.addEventListener('change',u)});
+$('#date').min=new Date().toISOString().slice(0,10);
+$('#bf').onsubmit=e=>{e.preventDefault();
+let t=`Hi, I'm ${$('#name').value} (${$('#phone').value}). I'd like to book ${$('#svc').value} on ${$('#date').value}.`;
+if($('#note').value)t+=` Design ideas: ${$('#note').value}`;
+window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(t)}`,'_blank')};
+</script>
+</body>
+</html>
