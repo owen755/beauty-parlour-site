@@ -39,6 +39,13 @@ body{background:#FDFBF7;color:#121212}
 .fi:focus{outline:none;border-color:#C5A880}
 .fl{position:absolute;top:10px;left:0;color:#6B7280;pointer-events:none;transition:all .3s}
 .fi:focus~.fl,.fi.hv~.fl{top:-14px;font-size:.75rem;color:#A38760}
+#menu{position:fixed;left:0;right:0;top:72px;z-index:40;background:rgba(18,18,18,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(197,168,128,.3);max-height:0;opacity:0;visibility:hidden;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1),opacity .3s,visibility .5s}
+#menu.open{max-height:440px;opacity:1;visibility:visible}
+#menu a{display:block;padding:18px 24px;border-top:1px solid rgba(255,255,255,.08);font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:#FDFBF7}
+#menu a:first-child{border-top:0}
+#menu a:hover,#menu a.cta{color:#C5A880}
+#nav.mo{background:#121212;mix-blend-mode:normal!important}
+@media(min-width:768px){#menu{display:none}}
 @keyframes zoom{from{transform:scale(1.05)}to{transform:scale(1.15)}}
 @keyframes sd{0%{transform:translateY(-100%)}50%{transform:none}100%{transform:translateY(100%)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
@@ -57,8 +64,8 @@ body{background:#FDFBF7;color:#121212}
 <button id="mb" class="md:hidden relative z-50" aria-label="Menu" aria-expanded="false"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div>
 </nav>
-<div id="menu" class="hidden fixed inset-0 z-40 bg-obsidian text-alabaster flex-col items-center justify-center gap-8 font-serif text-4xl">
-<a href="#about">Philosophy</a><a href="#services">Menu</a><a href="#gallery">Portfolio</a><a href="#booking" class="text-champagne">Reserve</a>
+<div id="menu">
+<a href="#about">Philosophy</a><a href="#services">Menu</a><a href="#gallery">Portfolio</a><a href="#booking" class="cta">Reserve a session</a>
 </div>
 
 <header class="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-obsidian" style="background:radial-gradient(circle at 70% 30%,#4a3a26 0,#121212 60%)">
@@ -149,7 +156,7 @@ body{background:#FDFBF7;color:#121212}
 
 <script>
 /* EDIT THESE: her WhatsApp (country code first, no +), Instagram link, and photo links or data URIs */
-const CONFIG={whatsapp:"254700000000",instagram:"",photos:{hero:"images/hero.jpg",about:"images/about.jpg",g1:"images/gallery1.jpg",g2:"images/gallery2.jpg",g3:"images/gallery3.jpg",g4:"images/gallery4.jpg"}};
+const CONFIG={whatsapp:"254742 941312",instagram:"",photos:{hero:"images/hero.jpg",about:"images/beautifulnails.jpg",g1:"images/gallery1.jpg",g2:"images/gallery2.jpg",g3:"images/gallery3.jpg",g4:"images/gallery4.jpg"}};
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 $('#yr').textContent=new Date().getFullYear();
 $('#wa-show').textContent='+'+CONFIG.whatsapp;
@@ -160,9 +167,13 @@ $$('.rv:not(.on),.ph').forEach(e=>io.observe(e));
 const nav=$('#nav');
 addEventListener('scroll',()=>{const s=scrollY>50;nav.classList.toggle('bg-obsidian/90',s);nav.classList.toggle('backdrop-blur-md',s);nav.classList.toggle('mix-blend-difference',!s)},{passive:true});
 const mb=$('#mb'),menu=$('#menu');
-function tm(o){menu.classList.toggle('hidden',!o);menu.classList.toggle('flex',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
-mb.onclick=()=>tm(menu.classList.contains('hidden'));
+const BARS='<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1" d="M4 7h16M4 12h16M4 17h16"/></svg>',XI='<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1" d="M6 6l12 12M18 6L6 18"/></svg>';
+function tm(o){menu.style.top=nav.getBoundingClientRect().bottom+'px';menu.classList.toggle('open',o);nav.classList.toggle('mo',o);mb.setAttribute('aria-expanded',o);mb.innerHTML=o?XI:BARS}
+mb.onclick=e=>{e.stopPropagation();tm(!menu.classList.contains('open'))};
 $$('#menu a').forEach(a=>a.onclick=()=>tm(false));
+document.addEventListener('click',e=>{if(!e.target.closest('#menu,#mb'))tm(false)});
+addEventListener('keydown',e=>{if(e.key==='Escape')tm(false)});
+addEventListener('resize',()=>{if(innerWidth>=768)tm(false)});
 if(matchMedia('(pointer:fine)').matches){
 document.body.classList.add('cur');
 const cd=$('.cd'),co=$('.co');
